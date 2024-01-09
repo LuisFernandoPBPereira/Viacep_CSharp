@@ -15,7 +15,7 @@
     <li>Aplicação em Console</li>
   </ul>
 </div>
-<div>
+<div align="center">
   <h2>Prévia:</h2>
   <img src="https://github.com/LuisFernandoPBPereira/Viacep_CSharp/assets/86135150/04a154e7-bbb8-46b0-9819-6dcddc1a102f">
 </div>
