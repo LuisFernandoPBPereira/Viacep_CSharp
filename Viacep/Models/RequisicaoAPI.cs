@@ -26,7 +26,26 @@ namespace Viacep.Models
             {
                 Console.WriteLine($"Houve um erro na consulta, tente novamente. ERRO: {ex.Message}\n\n");
             }
-             
+        }
+        public void RequisicaoSemCEP(string uf, string localidade, string logradouro)
+        {
+            try
+            {
+                using(var client = new HttpClient())
+                {
+                    var endpoint = new Uri($"https://viacep.com.br/ws/{uf}/{localidade}/{logradouro}/json/");
+                    var result = client.GetAsync(endpoint).Result;
+                    var json = result.Content.ReadAsStringAsync().Result;
+
+                    Consulta consulta = new Consulta();
+                    consulta.ConsultaSemCEP(json);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("\nErro: Não foi possível realizar a consulta.\n");
+            }
         }
     }
 }
